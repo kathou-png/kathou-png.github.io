@@ -1,28 +1,42 @@
-$backgroundDarkTheme : #0a0a0a
-$accent1DarkTheme : #0f0f0f
+@use 'variables' as v
+
 * 
     margin: 0
     padding: 0
 
 body
     background-repeat: repeat
-    background-color: $backgroundDarkTheme
+    background-color: v.$backgroundDarkTheme
     font-family: 'Lato', sans-serif
 h1
     font-weight: 300
-    color: #8d68b3
+    color: v.$textEm
     font-size: 3em
 h2
     font-family: 'Lato', sans-serif
     font-weight: 100
     font-size: 30px
-    padding-top: 15%
+    vertical-align:middle
+    height: min-content
+    text-align: center
+    display: inline-block
 .home
     height: 100vh
     overflow: hidden
     padding-left: 10%
     padding-right: 10%
-    background-color: #0a0a0a
+    background-color: v.$backgroundDarkTheme
+.themeContainer
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+.themeContainer .box
+    width : 2em
+    height: 2em
+.themeContainer .light
+    background-color: white
+.themeContainer .dark
+    background-color: grey
 .title
     font-size: 2em
     font-weight: 100
@@ -34,6 +48,9 @@ h2
     height: 100%
     vertical-align: middle
     text-align: center
+    -webkit-animation-name: fadeInLeft
+    animation-name: fadeInLeft
+    animation-duration: 5s
 
 .hover-content
     display: none
@@ -51,10 +68,13 @@ h2
 .mainarticle
     display: flex
     flex-direction: column
+    justify-content: space-around
 .article
-    height: 100vh
+    height: 50vh
     color: white
     display: flex
+    color: #000
+    opacity: 1
     flex-direction: row
     justify-content: space-evenly
     align-items: center
@@ -62,7 +82,7 @@ h2
 .about
     height: 80vh
     color: white
-    background: $accent1DarkTheme
+    background: v.$accent1DarkTheme
 .about h3 
     padding: 3%
     padding-left: 5%
@@ -76,21 +96,23 @@ h2
     justify-content: space-around
     padding: 4%
 .about p
-    line-height: 1.5em
+    line-height: 2.5em
     vertical-align: middle
 .section
     height:100%
     width: 80%
     display: flex
+    color: white
     flex-direction: column
-    justify-content: space-between
+    justify-content: center
+    align-items: center
 
 .article :hover
     background-color: #1f1f1f
+    opacity: 0.5
 
 .article :hover .hover-content
     display: block
-    background-color: #424242
 .hover-content :hover
     background-color: red
 .logo
@@ -109,8 +131,8 @@ h2
     height: 100%
     filter: opacity(0.8) drop-shadow(0 0 0 white)
 footer
-    padding: 1%
-    margin: 1%
+    padding: 6%
+    margin: 6%
     color: white
     display: flex
     flex-direction: column
